@@ -1,0 +1,113 @@
+{
+  "_version": {
+    "_domain": {
+      "twilio": {
+        "username": "AC2d7d6d9f76651bc6cc28a5608523708e",
+        "password": "84a15c42a08b2da713f237c0855fec04",
+        "accountSid": "AC2d7d6d9f76651bc6cc28a5608523708e",
+        "_httpClient": {
+          "defaultTimeout": 30000,
+          "lastResponse": {
+            "statusCode": 201,
+            "body": {
+              "body": "Sent from your Twilio trial account - Please verify your phone number for GroApp!",
+              "num_segments": "1",
+              "direction": "outbound-api",
+              "from": "+12402139714",
+              "date_updated": "Sat, 08 Oct 2022 14:27:45 +0000",
+              "price": null,
+              "error_message": null,
+              "uri": "/2010-04-01/Accounts/AC2d7d6d9f76651bc6cc28a5608523708e/Messages/SM960da6f0e134168790ca043fa25ccb7b.json",
+              "account_sid": "AC2d7d6d9f76651bc6cc28a5608523708e",
+              "num_media": "0",
+              "to": "+15128440412",
+              "date_created": "Sat, 08 Oct 2022 14:27:45 +0000",
+              "status": "queued",
+              "sid": "SM960da6f0e134168790ca043fa25ccb7b",
+              "date_sent": null,
+              "messaging_service_sid": null,
+              "error_code": null,
+              "price_unit": "USD",
+              "api_version": "2010-04-01",
+              "subresource_uris": {
+                "media": "/2010-04-01/Accounts/AC2d7d6d9f76651bc6cc28a5608523708e/Messages/SM960da6f0e134168790ca043fa25ccb7b/Media.json"
+              }
+            },
+            "headers": {
+              "date": "Sat, 08 Oct 2022 14:27:46 GMT",
+              "content-type": "application/json; charset=utf-8",
+              "content-length": "845",
+              "connection": "close",
+              "twilio-concurrent-requests": "1",
+              "twilio-request-id": "RQ960da6f0e134168790ca043fa25ccb7b",
+              "twilio-request-duration": "0.171",
+              "access-control-allow-origin": "*",
+              "access-control-allow-headers": "Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since",
+              "access-control-allow-methods": "GET, POST, DELETE, OPTIONS",
+              "access-control-expose-headers": "ETag",
+              "access-control-allow-credentials": "true",
+              "x-powered-by": "AT-5000",
+              "x-shenanigans": "none",
+              "x-home-region": "us1",
+              "x-api-domain": "api.twilio.com",
+              "strict-transport-security": "max-age=31536000"
+            }
+          },
+          "lastRequest": {
+            "method": "POST",
+            "url": "https://api.twilio.com/2010-04-01/Accounts/AC2d7d6d9f76651bc6cc28a5608523708e/Messages.json",
+            "auth": "QUMyZDdkNmQ5Zjc2NjUxYmM2Y2MyOGE1NjA4NTIzNzA4ZTo4NGExNWM0MmEwOGIyZGE3MTNmMjM3YzA4NTVmZWMwNA==",
+            "params": "*",
+            "data": {
+              "To": "+15128440412",
+              "From": "+12402139714",
+              "Body": "Please verify your phone number for GroApp!"
+            },
+            "headers": {
+              "User-Agent": "twilio-node/3.82.2 (win32 x64) node/v16.15.1",
+              "Accept-Charset": "utf-8",
+              "Content-Type": "application/x-www-form-urlencoded",
+              "Accept": "application/json",
+              "Connection": "close",
+              "Authorization": "Basic QUMyZDdkNmQ5Zjc2NjUxYmM2Y2MyOGE1NjA4NTIzNzA4ZTo4NGExNWM0MmEwOGIyZGE3MTNmMjM3YzA4NTVmZWMwNA=="
+            }
+          }
+        },
+        "userAgentExtensions": [],
+        "_api": "[Circular]"
+      },
+      "baseUrl": "https://api.twilio.com",
+      "_v2010": "[Circular]"
+    },
+    "_version": "2010-04-01",
+    "_account": {
+      "sid": "AC2d7d6d9f76651bc6cc28a5608523708e"
+    }
+  },
+  "body": "Sent from your Twilio trial account - Please verify your phone number for GroApp!",
+  "numSegments": "1",
+  "direction": "outbound-api",
+  "from": "+12402139714",
+  "to": "+15128440412",
+  "dateUpdated": "2022-10-08T14:27:45.000Z",
+  "price": null,
+  "errorMessage": null,
+  "uri": "/2010-04-01/Accounts/AC2d7d6d9f76651bc6cc28a5608523708e/Messages/SM960da6f0e134168790ca043fa25ccb7b.json",
+  "accountSid": "AC2d7d6d9f76651bc6cc28a5608523708e",
+  "numMedia": "0",
+  "status": "queued",
+  "messagingServiceSid": null,
+  "sid": "SM960da6f0e134168790ca043fa25ccb7b",
+  "dateSent": null,
+  "dateCreated": "2022-10-08T14:27:45.000Z",
+  "errorCode": null,
+  "priceUnit": "USD",
+  "apiVersion": "2010-04-01",
+  "subresourceUris": {
+    "media": "/2010-04-01/Accounts/AC2d7d6d9f76651bc6cc28a5608523708e/Messages/SM960da6f0e134168790ca043fa25ccb7b/Media.json"
+  },
+  "_solution": {
+    "accountSid": "AC2d7d6d9f76651bc6cc28a5608523708e",
+    "sid": "SM960da6f0e134168790ca043fa25ccb7b"
+  }
+}
