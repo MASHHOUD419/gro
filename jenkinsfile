@@ -2,12 +2,12 @@ pipeline {
     agent any
     
     stages {
-        stage('Clean WorkSpace') {
+        stage('Clean Workspace') {
             steps {
                 sh 'rm -rf *'
             }
         }
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
                 git branch: 'master', url: 'https://github.com/MASHHOUD419/gro.git'
             }
@@ -17,24 +17,47 @@ pipeline {
                 git poll: true, branch: 'master', url: 'https://github.com/MASHHOUD419/gro.git'
             }
         }
-        stage('Test') {
+        stage('Run Tests') {
             steps {
                 sh 'npm install'
                 sh 'npm run build'
             }
         }
-        stage('Build') {
+        stage('Create Build Artifact') {
             steps {
                 sh 'tar -cvpzf gro.tar.gz * .env .eslintrc.js .prettierrc'
             }
         }
-        stage('Deploy') {
+        stage('Deploy to dev:Server') {
             steps {
-                sshPublisher(publishers: [sshPublisherDesc(configName: 'Gro-Technologies-Dev', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd gro-technologies; 
-tar -xf gro.tar.gz;
-
-cd dist/src/;''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'gro.tar.gz')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-                
+                sshPublisher(
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: 'Gro-Technologies-Dev',
+                            transfers: [
+                                sshTransfer(
+                                    cleanRemote: false,
+                                    excludes: '',
+                                    execCommand: '''cd gro-technologies; 
+                                        tar -xf gro.tar.gz;
+                                        cd dist/src/;''',
+                                    execTimeout: 120000,
+                                    flatten: false,
+                                    makeEmptyDirs: false,
+                                    noDefaultExcludes: false,
+                                    patternSeparator: '[, ]+',
+                                    remoteDirectory: '/',
+                                    remoteDirectorySDF: false,
+                                    removePrefix: '',
+                                    sourceFiles: 'gro.tar.gz'
+                                )
+                            ],
+                            usePromotionTimestamp: false,
+                            useWorkspaceInPromotion: false,
+                            verbose: false
+                        )
+                    ]
+                )
             }
         }
     }
