@@ -2,21 +2,6 @@ pipeline {
     agent any
     
     stages {
-        stage('Clean Workspace') {
-            steps {
-                sh 'rm -rf *'
-            }
-        }
-        stage('Checkout Code') {
-            steps {
-                git branch: 'master', url: 'https://github.com/MASHHOUD419/gro.git'
-            }
-        }
-        stage('Checkout SCM') {
-            steps {
-                git poll: true, branch: 'master', url: 'https://github.com/MASHHOUD419/gro.git'
-            }
-        }
         stage('Run Tests') {
             steps {
                 sh 'npm install'
