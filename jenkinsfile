@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Clean WorkSpace') {
+            steps {
+                sh 'rm -rf *'
+            }
+        }
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/MASHHOUD419/gro.git'
+            }
+        }
+        stage('Checkout SCM') {
+            steps {
+                git poll: true, branch: 'master', url: 'https://github.com/MASHHOUD419/gro.git'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'tar -cvpzf gro.tar.gz * .env .eslintrc.js .prettierrc'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'Gro-Technologies-Dev', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd gro-technologies; 
+tar -xf gro.tar.gz;
+
+cd dist/src/;''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'gro.tar.gz')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                
+            }
+        }
+    }
+}
